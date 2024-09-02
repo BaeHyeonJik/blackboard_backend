@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,17 +30,17 @@ const getStudentLecturePostsRoutes = require('./routes/getStudentLecturePosts');
 const deleteRegisterRoutes = require('./routes/deleteRegister');
 const deleteLecturePostRoutes = require('./routes/deleteLecturePost');
 
-app.use("/login", loginRoutes);
-app.use("/signup", signupRoutes);
-app.use("/getProfessorLectures", getProfessorLecturesRoutes);
-app.use("/getProfessorLecturePosts", getProfessorLecturePostsRoutes);
-app.use("/insertLecturePost", insertLecturePostRoutes);
-app.use("/getStudentLectures", getStudentLecturesRoutes);
-app.use("/getAllLectures", getAllLecturesRoutes);
-app.use("/insertRegister", insertRegisterRoutes);
-app.use("/getStudentLecturePosts", getStudentLecturePostsRoutes);
-app.use("/deleteRegister", deleteRegisterRoutes);
-app.use("/deleteLecturePost", deleteLecturePostRoutes);
+app.use("/api/login", loginRoutes);
+app.use("/api/signup", signupRoutes);
+app.use("/api/getProfessorLectures", getProfessorLecturesRoutes);
+app.use("/api/getProfessorLecturePosts", getProfessorLecturePostsRoutes);
+app.use("/api/insertLecturePost", insertLecturePostRoutes);
+app.use("/api/getStudentLectures", getStudentLecturesRoutes);
+app.use("/api/getAllLectures", getAllLecturesRoutes);
+app.use("/api/insertRegister", insertRegisterRoutes);
+app.use("/api/getStudentLecturePosts", getStudentLecturePostsRoutes);
+app.use("/api/deleteRegister", deleteRegisterRoutes);
+app.use("/api/deleteLecturePost", deleteLecturePostRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
