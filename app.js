@@ -11,6 +11,7 @@ app.use(
   cors({
     origin: [
       "https://port-0-blackboard-backend-f9ohr2alrkcohsg.sel5.cloudtype.app",
+      "https://web-blackbaord-frontend-f9ohr2alrkcohsg.sel5.cloudtype.app",
       "http://localhost:3000",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
