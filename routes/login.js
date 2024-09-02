@@ -1,27 +1,18 @@
 const express = require('express');
-const cors = require('cors');
 const bcrypt = require("bcryptjs");
 const Pool = require('../mysql');
 const router = express.Router();
-
-var corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200 
-}
 
 const comparePassword = async (password, hash) => {
     const isResult = await bcrypt.compare(password, hash);
     return isResult;
 }
 
-router.post('/', cors(corsOptions), async (req, res) => {
+router.post('/', async (req, res) => {
   const connection = await Pool.getConnection();
   console.log(req.body);
   let {user_id, password} = req.body;
-
-
-
-  try {
+  try{
     user_id = user_id.trim();
     password = password.trim();
     const user_Info = await connection.query(
@@ -39,7 +30,7 @@ router.post('/', cors(corsOptions), async (req, res) => {
 
     const is_correct = user_Info?.password ? await comparePassword(password, user_Info.password) : false;
 
-    if (!is_correct) {          
+    if(!is_correct){          
       const response = {
         statusCode: 409,
       }
@@ -65,3 +56,7 @@ router.post('/', cors(corsOptions), async (req, res) => {
 });
 
 module.exports = router;
+
+
+
+  
