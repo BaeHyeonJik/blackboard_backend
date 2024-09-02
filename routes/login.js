@@ -12,7 +12,11 @@ router.post('/', async (req, res) => {
   const connection = await Pool.getConnection();
   console.log(req.body);
   let {user_id, password} = req.body;
-  try{
+  
+  // CORS 헤더 설정
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  try {
     user_id = user_id.trim();
     password = password.trim();
     const user_Info = await connection.query(
@@ -30,7 +34,7 @@ router.post('/', async (req, res) => {
 
     const is_correct = user_Info?.password ? await comparePassword(password, user_Info.password) : false;
 
-    if(!is_correct){          
+    if (!is_correct) {          
       const response = {
         statusCode: 409,
       }
@@ -56,7 +60,3 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-
-
-
-  
