@@ -8,7 +8,11 @@ const PORT = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+};
+app.use(cors(corsOptions));
 
 const loginRoutes = require('./routes/login')
 const signupRoutes = require('./routes/signup')
