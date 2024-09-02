@@ -9,12 +9,7 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const corsOptions = {
-  origin: '*',
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Content-Type,Authorization',
-};
-app.use(cors(corsOptions));
+app.use(cors())
 
 const loginRoutes = require('./routes/login')
 const signupRoutes = require('./routes/signup')
