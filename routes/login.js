@@ -1,20 +1,25 @@
 const express = require('express');
+const cors = require('cors');
 const bcrypt = require("bcryptjs");
 const Pool = require('../mysql');
 const router = express.Router();
+
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 
+}
 
 const comparePassword = async (password, hash) => {
     const isResult = await bcrypt.compare(password, hash);
     return isResult;
 }
 
-router.post('/', async (req, res) => {
+router.post('/', cors(corsOptions), async (req, res) => {
   const connection = await Pool.getConnection();
   console.log(req.body);
   let {user_id, password} = req.body;
-  
-  // CORS 헤더 설정
-  res.setHeader('Access-Control-Allow-Origin', '*');
+
+
 
   try {
     user_id = user_id.trim();
