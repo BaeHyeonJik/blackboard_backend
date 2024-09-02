@@ -16,17 +16,16 @@ router.post('/', async (req, res) => {
     const user_id = list.user_id.trim();
     const password = await hashedPassword(list.password.trim());
     const name = list.name.trim();
-    const student_id = list.student_id.trim();
+    const num = list.num.trim();
     const role = list.role;
     const [user] = await connection.query(
       `SELECT * FROM blackboard.users WHERE users.user_id = ?`, 
       [user_id]
     );
-    console.log(user_id, password, name, student_id, role);
     if(user.length === 0){
       await connection.query(
-        `INSERT INTO blackboard.users (user_id, password, name, student_id, role) VALUES (?, ?, ?, ?, ?)`,
-        [user_id, password, name, student_id, role]
+        `INSERT INTO blackboard.users (user_id, password, name, num, role) VALUES (?, ?, ?, ?, ?)`,
+        [user_id, password, name, num, role]
       )
     } else {
       const response = {
