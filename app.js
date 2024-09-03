@@ -7,17 +7,17 @@ const PORT = 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(
-//   cors({
-//     origin: [
-//       "https://port-0-blackboard-backend-f9ohr2alrkcohsg.sel5.cloudtype.app",
-//       "https://web-blackbaord-frontend-f9ohr2alrkcohsg.sel5.cloudtype.app",
-//       "http://localhost:8080",
-//     ],
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: [
+      "https://port-0-blackboard-backend-f9ohr2alrkcohsg.sel5.cloudtype.app",
+      "https://web-blackbaord-frontend-f9ohr2alrkcohsg.sel5.cloudtype.app",
+      "http://localhost:8080",
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
 const loginRoutes = require('./routes/login');
 const signupRoutes = require('./routes/signup');
