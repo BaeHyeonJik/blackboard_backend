@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const connection = await Pool.getConnection();
-
   try{
    const response = {
       statusCode: 200,
