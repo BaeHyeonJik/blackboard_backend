@@ -18,7 +18,7 @@ app.use(
     credentials: true,
   })
 );
-
+const tempRoutes = require('./routes/temp');
 const loginRoutes = require('./routes/login');
 const signupRoutes = require('./routes/signup');
 const getProfessorLecturesRoutes = require('./routes/getProfessorLectures');
@@ -31,6 +31,7 @@ const getStudentLecturePostsRoutes = require('./routes/getStudentLecturePosts');
 const deleteRegisterRoutes = require('./routes/deleteRegister');
 const deleteLecturePostRoutes = require('./routes/deleteLecturePost');
 
+app.use("/api", tempRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/signup", signupRoutes);
 app.use("/api/getProfessorLectures", getProfessorLecturesRoutes);
