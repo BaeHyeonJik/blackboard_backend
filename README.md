@@ -1,12 +1,12 @@
 
 # KWEB 정회원 과제 설명
 
-## 의존성 파일 설치
+## 1. 의존성 파일 설치
 ```bash
 npm ci
 ```
 
-## DB Schema
+## 2. DB Schema name : blackboard
 
 ```sql
 CREATE TABLE users (
@@ -50,16 +50,17 @@ CREATE TABLE boards (
 );
 ```
 
-## .env 파일
+## 3. .env 파일(루트 디렉토리에 생성)
 (DB 생성 후 값을 넣어주면 됩니다!)
 ```
 DATABASE_USER=
 DATABASE_PASSWORD=
 DATABASE_NAME=
 DATABASE_HOST=
+DATABASE_PORT =
 ```
 
-## 실행 명령어
+## 4. 실행 명령어
 ```bash
 node app.js
 ```
