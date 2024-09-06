@@ -3,7 +3,7 @@ KWEB 정회원 과제 설명
 1. 의존성 파일 설치
    : npm ci
 
-2. DB schema: blackboard
+3. DB schema: blackboard
   CREATE TABLE users (
       id INT NOT NULL AUTO_INCREMENT,
       user_id VARCHAR(45) NOT NULL,
@@ -12,8 +12,7 @@ KWEB 정회원 과제 설명
       num VARCHAR(10) NOT NULL,
       role VARCHAR(10) NOT NULL,
       PRIMARY KEY (id)
-  )
-  
+   )
   CREATE TABLE lectures (
       id INT NOT NULL AUTO_INCREMENT,
       prof_id INT NOT NULL,
@@ -24,9 +23,9 @@ KWEB 정회원 과제 설명
       FOREIGN KEY (prof_id) REFERENCES users(id)
           ON DELETE CASCADE
           ON UPDATE CASCADE
-  )
-  
-  CREATE TABLE registers (
+  ) 
+
+   CREATE TABLE registers (
       id INT NOT NULL AUTO_INCREMENT,
       lecture_id INT NOT NULL,
       student_id INT NOT NULL,
@@ -38,8 +37,8 @@ KWEB 정회원 과제 설명
           ON DELETE CASCADE
           ON UPDATE CASCADE
   )
-  
-  CREATE TABLE boards (
+
+   CREATE TABLE boards (
       id INT AUTO_INCREMENT PRIMARY KEY,
       prof_id INT NOT NULL,
       lecture_id INT NOT NULL,
@@ -53,12 +52,12 @@ KWEB 정회원 과제 설명
   		    ON DELETE CASCADE 
   		    ON UPDATE CASCADE
   )
-
-3. .env 파일(DB 생성후 값을 넣어주면 됩니다!)
+  
+4. .env 파일(DB 생성후 값을 넣어주면 됩니다!)
   DATABASE_USER=
   DATABASE_PASSWORD=
   DATABASE_NAME=
   DATABASE_HOST=
 
-4. 실행명령어
+5. 실행명령어
   : node app.js
