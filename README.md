@@ -1,11 +1,14 @@
+
 # KWEB 정회원 과제 설명
 
 ## 의존성 파일 설치
-
+```bash
 npm ci
+```
 
 ## DB Schema
 
+```sql
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     user_id VARCHAR(45) NOT NULL,
@@ -45,19 +48,18 @@ CREATE TABLE boards (
     FOREIGN KEY (prof_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (lecture_id) REFERENCES lectures(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
+```
 
 ## .env 파일
-
 (DB 생성 후 값을 넣어주면 됩니다!)
-
+```
 DATABASE_USER=
 DATABASE_PASSWORD=
 DATABASE_NAME=
 DATABASE_HOST=
-
+```
 
 ## 실행 명령어
-
+```bash
 node app.js
-
+```
