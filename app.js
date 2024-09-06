@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 const loginRoutes = require('./routes/login')
 const signupRoutes = require('./routes/signup')
 const insertCourseRoutes = require('./routes/insertCourse')
+const getAllTakingStudentRoutes = require('./routes/getAllTakingStudent')
 const getProfessorLecturesRoutes = require('./routes/getProfessorLectures')
 const getProfessorLecturePostsRoutes = require('./routes/getProfessorLecturePosts')
 const insertLecturePostRoutes = require('./routes/insertLecturePost')
@@ -23,7 +24,9 @@ const deleteLecturePostRoutes = require('./routes/deleteLecturePost')
 
 app.use("/login", loginRoutes)
 app.use("/signup", signupRoutes)
-app.use("/insertCourse", insertCourseRoutes)
+app.use("/insertCourse", insertCourseRoutes)  
+app.use("/getAllTakingStudent", getAllTakingStudentRoutes)
+
 app.use("/getProfessorLectures", getProfessorLecturesRoutes)
 app.use("/getProfessorLecturePosts", getProfessorLecturePostsRoutes)
 app.use("/insertLecturePost", insertLecturePostRoutes)
