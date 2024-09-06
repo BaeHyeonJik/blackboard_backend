@@ -53,11 +53,11 @@ CREATE TABLE boards (
 ## 3. .env 파일(루트 디렉토리에 생성)
 (DB 생성 후 값을 넣어주면 됩니다!)
 ```
-DATABASE_USER=
-DATABASE_PASSWORD=
-DATABASE_NAME=
-DATABASE_HOST=
-DATABASE_PORT =
+DATABASE_USER=         //root
+DATABASE_PASSWORD=     //1234
+DATABASE_NAME=         //blackboard
+DATABASE_HOST=         //localhost
+DATABASE_PORT =        //3306
 ```
 
 ## 4. 실행 명령어
