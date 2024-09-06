@@ -23,10 +23,10 @@ router.post('/', async (req, res) => {
 
     if(!is_correct){          
       const response = {
-        statusCode: 409,
+        statusCode: 401,
       }
       console.log(response);
-      res.status(409).json(response);
+      res.status(401).json(response);
       return;
     }  
     
