@@ -39,7 +39,7 @@ CREATE TABLE registers (
 );
 
 CREATE TABLE boards (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT,
     prof_id INT NOT NULL,
     lecture_id INT NOT NULL,
     post_title TEXT NOT NULL,
